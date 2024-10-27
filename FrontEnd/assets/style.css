@@ -97,6 +97,7 @@ nav li {
 
 li:hover {
 	color: #B1663C;
+	font-weight: 700;
 }
 #introduction {
 	display: flex;
