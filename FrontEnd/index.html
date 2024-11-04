@@ -8,17 +8,16 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
 	<meta name="description" content="">
-	<link rel="stylesheet" href="./assets/style.css">
-	<script defer src="./index.js"></script>
+	<link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
 <header>
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
 	<nav>
 		<ul>
-			<li>projets</li>
-			<li>contact</li>
-			<li><a href="./page_de_connexion.html"></a> login</li>
+			<li><a href="#portfolio">projets</a></li>
+			<li><a href="#contact">contact</a></li>
+			<li><a href="./login.html" target="_blank">login</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -36,7 +35,32 @@
 		</article>
 	</section>
 	<section id="portfolio">
-		<h2>Mes Projets</h2>
+		<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" style="display: none;">
+			<div class="modal-content">
+				<span class="close-button">&times;</span>
+				<div id="gallery-view">
+					<h2>Galerie photo</h2>
+					<div id="works-gallery"></div> <!-- Conteneur pour afficher les travaux -->
+					<button id="add-photo-btn">Ajouter une photo</button>
+				</div>
+				<div id="add-photo-view" style="display: none;">
+					<h2>Ajouter un média</h2>
+					<form id="add-photo-form">
+						<label for="photo-file">Photo :</label>
+						<input type="file" id="photo-file" accept="image/png, image/jpeg">
+						<label for="photo-title">Titre :</label>
+						<input type="text" id="photo-title">
+						<label for="photo-category">Catégorie :</label>
+						<select id="photo-category">
+							<!-- Options de catégorie ici -->
+						</select>
+						<button type="submit">Valider</button>
+					</form>
+					<button id="back-to-gallery">Retour à la galerie</button>
+				</div>
+			</div>
+		</div>
+		<h2 id="mes-projets">Mes Projets <span><button id="edit-button"><img src="./assets/icons/modifier.png" alt="logo modifier"/>modifier</button></span></h2>
 		<div class="categories-menu"></div>
 		<div class="gallery">
 		</div>
@@ -63,5 +87,6 @@
 		</ul>
 	</nav>
 </footer>
+<script src="./assets/js/index.js"></script>
 </body>
 </html>
