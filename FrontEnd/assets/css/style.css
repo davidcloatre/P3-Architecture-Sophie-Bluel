@@ -118,7 +118,6 @@ main {
 }
 #introduction img {
 	display: block;
-	margin: auto;
 	width: 80%;
 }
 
@@ -246,33 +245,213 @@ footer nav ul {
 	margin: 2em 10em 2em;
 }
 /*----------------------------------------------*/
-
-.modal {
+#modal {
+    display: none; /* Par défaut masqué */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Arrière-plan semi-transparent */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+	position: fixed;
+	top: 600px;
+	width: 40vh;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+#back-to-gallery {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1002;
+}
+  
+.close-button {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+  /*-----------------*/
+#gallery-view h2 {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    color: #000;
+}
+#gallery-view {
+    margin: 40px 70px 30px 70px;
+}
+#works-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 10px; 
+    overflow-y: auto; 
+    padding: 25px 0;
+	border-bottom: 1px solid #B3B3B3;
+}
+#works-gallery .work-item {
+    position: relative; /* Nécessaire pour que le bouton se positionne par rapport à chaque image */
+    display: inline-block;
+    text-align: center;
+}
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1; 
+}
+#add-photo-view {
+	display: flex;
+    flex-direction: column;
+    margin: 40px 70px 30px 70px;
+}
+#add-photo-view h2 {
+    display: flex;
+    justify-content: center;
+    color: #000;
+}
+/* Bouton Ajouter une photo */
+
+
+#add-photo-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .modal-content {
-    width: 80%;
-    max-width: 500px;
-    background-color: white;
-    padding: 20px;
-    overflow-y: auto; /* Ajoute un défilement interne si le contenu dépasse */
-    border-radius: 8px;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 24px;
+    background-color: #1D6154;
+    border-radius: 60px;
+    border: none;
+    height: 36px;
     cursor: pointer;
-  }
+    margin: 30px auto 0 auto;
+}
+
+#add-photo-btn h2 {
+    color: #fff;
+    font-family: Syne;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 30px;
+}
+
+/* Bouton Retour à la galerie */
+
+
+
+/* Formulaire d'ajout de photo */
+#add-photo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px 0 0 0;
+}
+
+
+
+.image-preview {
+    display: block;
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+}
+#photo-preview {
+    display: flex;
+    max-height: 168px;
+    flex: 1;
+}
+#photo-title {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+.file-upload {
+
+    max-width: 420px;
+    max-height: 170px;
+    background-color: #E8F1F6;
+    
+}
+.file-upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 170px;
+    margin: 10px 0;
+    gap: 5px;
+}
+.file-upload-placeholder h2 {
+    font-size: 14px;
+    background-color: #CBD6DC;
+    border-radius: 50px;
+    width: 173px;
+    height: 36px;
+    align-items: center;
+}
+
+
+#upload-button {
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#validate-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a7d43;
+    color: #fff;
+    border: none;
+    border-radius: 60px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+#photo-category {
+    height: 50px;
+	font-size: 1.2em;
+	border: none;
+    background-color: #fff;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+    border-bottom: 1px solid #B3B3B3;
+}
+.submit-button {
+    background-color: #A7A7A7;
+    border-radius: 60px;
+    border: none;
+    height: 36px;
+    cursor: pointer;
+    padding: 0 90px;
+    margin: 30px auto 0 auto;
+    color: #fff;
+    font-family: Syne;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration-skip-ink: none;
+}
+
+
   
